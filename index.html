@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Digital Archive</title>
     <style>
-        body { font-family: 'Arial', sans-serif; background-color: #f0f2f5; margin: 0; padding: 10px; }
-        .container { max-width: 900px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
-        h1 { color: #1a5f7a; font-size: 22px; }
-        h2 { color: #c0392b; font-size: 18px; border-bottom: 2px solid #eee; padding-bottom: 15px; }
-        #searchBar { width: 80%; padding: 12px; margin: 20px 0; border: 2px solid #1a5f7a; border-radius: 25px; font-size: 16px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { border: 1px solid #ddd; padding: 15px; text-align: center; }
-        th { background-color: #1a5f7a; color: white; }
-        .btn { display: inline-block; padding: 8px 15px; color: white; background-color: #27ae60; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 13px; }
-        .footer { margin-top: 40px; font-size: 12px; color: #7f8c8d; }
+        body { font-family: 'Arial', sans-serif; background-color: #f4f7f6; margin: 0; padding: 15px; }
+        .container { max-width: 950px; margin: auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; }
+        h1 { color: #1a5f7a; font-size: 24px; }
+        h2 { color: #c0392b; font-size: 18px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .section-title { background: #1a5f7a; color: white; padding: 10px; margin-top: 20px; border-radius: 5px; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; padding: 15px; }
+        .date-btn { display: block; padding: 10px; background: #27ae60; color: white; text-decoration: none; border-radius: 5px; font-size: 13px; font-weight: bold; }
+        .date-btn:hover { background: #219150; }
+        .vs-btn { background: #2980b9; } /* Vruttsankalan sathi nivla rang */
+        .vs-btn:hover { background: #1f6391; }
+        .footer { margin-top: 40px; font-size: 12px; color: #7f8c8d; border-top: 1px solid #eee; padding-top: 15px; }
     </style>
 </head>
 <body>
@@ -23,53 +24,35 @@
     <h1>Late Sow. Sheshabai Sitaram Mundhe Arts College, Gangakhed</h1>
     <h2>Dept. of Library: Digital Archive</h2>
 
-    <input type="text" id="searchBar" onkeyup="searchTable()" placeholder="Search Month or Date (e.g. March)...">
-
-    <div style="overflow-x:auto;">
-        <table id="archiveTable">
-            <thead>
-                <tr>
-                    <th>Month</th>
-                    <th>Special Days (Dinvishesh)</th>
-                    <th>Daily News Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>March 2026</td>
-                    <td><a class="btn" href="https://sidharthshinde.github.io/library-digital-archive/2026/03_march/dinvishesh/01_march_2026_dv.pdf">Latest PDF</a></td>
-                    <td><a class="btn" href="https://sidharthshinde.github.io/library-digital-archive/2026/03_march/vrutta-sankalan/01_march_2026_vs.pdf">Latest PDF</a></td>
-                </tr>
-                <tr>
-                    <td>April 2026</td>
-                    <td><a class="btn" href="https://sidharthshinde.github.io/library-digital-archive/2026/04_april/dinvishesh/22_april_2026_dv.pdf">Latest PDF</a></td>
-                    <td><a class="btn" href="https://sidharthshinde.github.io/library-digital-archive/2026/04_april/vrutta-sankalan/22_april_2026_vs.pdf">Latest PDF</a></td>
-                </tr>
-            </tbody>
-        </table>
+    <h3 class="section-title">APRIL 2026 - DINVISHESH (DV)</h3>
+    <div class="grid-container" id="april-dv">
+        <script>
+            for(let i=1; i<=22; i++) {
+                let d = i < 10 ? '0'+i : i;
+                document.write(`<a class="date-btn" href="https://sidharthshinde.github.io/library-digital-archive/2026/04_april/dinvishesh/${d}_april_2026_dv.pdf" target="_blank">${d} April</a>`);
+            }
+        </script>
     </div>
+
+    <h3 class="section-title">APRIL 2026 - VRUTTSANKALAN (VS)</h3>
+    <div class="grid-container">
+        <script>
+            for(let i=1; i<=22; i++) {
+                let d = i < 10 ? '0'+i : i;
+                document.write(`<a class="date-btn vs-btn" href="https://sidharthshinde.github.io/library-digital-archive/2026/04_april/vrutta-sankalan/${d}_april_2026_vs.pdf" target="_blank">${d} April</a>`);
+            }
+        </script>
+    </div>
+
+    <h3 class="section-title">MARCH 2026 - DINVISHESH & VS</h3>
+    <p>March mahinyache ahvaal pahnyasathi khaliil folders vapra:</p>
+    <a class="date-btn" style="display:inline-block; margin:5px;" href="https://github.com/sidharthshinde/library-digital-archive/tree/main/2026/03_march/dinvishesh">March Dinvishesh List</a>
+    <a class="date-btn vs-btn" style="display:inline-block; margin:5px;" href="https://github.com/sidharthshinde/library-digital-archive/tree/main/2026/03_march/vrutta-sankalan">March Vruttsankalan List</a>
 
     <div class="footer">
         © 2026 | Librarian: Sidharth Shinde
     </div>
 </div>
-
-<script>
-function searchTable() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("searchBar");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("archiveTable");
-    tr = table.getElementsByTagName("tr");
-    for (i = 1; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            tr[i].style.display = (txtValue.toUpperCase().indexOf(filter) > -1) ? "" : "none";
-        }
-    }
-}
-</script>
 
 </body>
 </html>
